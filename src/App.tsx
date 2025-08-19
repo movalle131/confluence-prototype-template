@@ -35,6 +35,8 @@ function App() {
       <TopNavStartLayoutExample 
         onSidebarToggle={toggleSidebar}
         sidebarCollapsed={sidebarCollapsed}
+        isDarkMode={isDarkMode}
+        onThemeToggle={toggleTheme}
       />
       
       {/* Layout with Side Nav and Main Content starting at same level as Secondary Nav */}
@@ -60,6 +62,27 @@ function App() {
               overflow: 'auto'
             }}
           >
+          {/* Hero Image */}
+          <Box 
+            style={{ 
+              width: '100%',
+              height: '345px',
+              marginBottom: token('space.200'),
+              overflow: 'hidden'
+            }}
+          >
+            <img 
+              src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?w=1200&h=345&fit=crop&crop=center"
+              alt="Silver MacBook Air on table near iMac - UX design workspace"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block'
+              }}
+            />
+          </Box>
+          
           <Box 
             paddingInline="space.200"
             paddingBlock="space.150"
@@ -70,17 +93,6 @@ function App() {
             }}
           >
             <Stack space="space.200">
-              {/* Theme Toggle */}
-              <Box style={{ textAlign: 'center' as const }}>
-                <Button 
-                  appearance="subtle" 
-                  onClick={toggleTheme}
-                  aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-                >
-                  {isDarkMode ? '☀️ Light' : '🌙 Dark'}
-                </Button>
-              </Box>
-
               {/* Logo Section */}
               <Inline space="space.300" alignInline="center">
                 <a href="https://vitejs.dev" target="_blank">
@@ -102,17 +114,23 @@ function App() {
                 backgroundColor="elevation.surface.raised"
                 style={{ borderRadius: token('border.radius.200') }}
               >
-                <Stack space="space.300">
-                  <Button appearance="default">
-                    Sample Button
-                  </Button>
+                <Stack space="space.300" alignInline="center">
                   <p style={{
                     fontSize: token('font.size.100'),
                     color: token('color.text.subtle'),
-                    margin: 0
+                    margin: 0,
+                    textAlign: 'center'
                   }}>
-                    Navigation is working! 🎉
+                    🎉 Kickstart your Confluence prototyping using this template. Designed to help you get up and running quickly with a basic framework in place.
                   </p>
+                  <Box style={{ alignSelf: 'center' }}>
+                    <Button 
+                      appearance="default"
+                      onClick={() => window.open('https://hello.atlassian.net/wiki/x/zy_BVAE', '_blank')}
+                    >
+                      Learn more
+                    </Button>
+                  </Box>
                 </Stack>
               </Box>
             </Stack>

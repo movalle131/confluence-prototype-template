@@ -1,175 +1,122 @@
-# Enhanced ADS React Vite Template 🚀
+# Confluence Prototype Template
 
-A comprehensive React 18 + TypeScript + Vite template with Atlassian Design System, featuring dark/light mode toggle and interactive form components.
+🎉 **Kickstart your Confluence prototyping using this template.** Designed to help you get up and running quickly with a basic framework in place.
 
-## ✨ Features
+## Features
 
-### 🎨 **Atlassian Design System Integration**
-- ✅ Full ADS setup with feature flags
-- ✅ Professional typography using ADS tokens
-- ✅ Consistent spacing and layout with ADS primitives
-- ✅ Official ADS components (Button, Heading, Form components)
+- ⚡ **Vite + React + TypeScript** - Fast development with modern tooling
+- 🎨 **Atlassian Design System (ADS)** - Professional UI components
+- 🧭 **Complete Navigation System** - Top nav, secondary nav, and sidebar
+- 📱 **Responsive Design** - Works on desktop and mobile
+- 🌙 **Dark/Light Theme Toggle** - Seamless theme switching
+- 🔧 **Floating Toolbar** - Context-aware actions
+- 🖼️ **Hero Image Section** - Professional workspace imagery
 
-### 🌓 **Dark/Light Mode Toggle**
-- ✅ Seamless theme switching
-- ✅ Automatic color adaptation for all components
-- ✅ Persistent theme state during session
-- ✅ Clean toggle button in header
+## Getting Started
 
-### 📝 **Interactive Form Components**
-- ✅ **Text Fields** with validation and error handling
-- ✅ **Dropdown Selects** with multiple options
-- ✅ **Checkboxes** for binary choices
-- ✅ **Form Validation** with real-time feedback
-- ✅ **Helper messages** and accessibility support
-
-### 🏗️ **Modern Development Stack**
-- ✅ **React 18** with latest features
-- ✅ **TypeScript** for type safety
-- ✅ **Vite** for lightning-fast development
-- ✅ **Hot Module Replacement** for instant updates
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Installation
+### Development Mode
 ```bash
-# Clone or copy this template
 npm install
 npm run dev
 ```
 
-### Using the Template Script
-```bash
-# Create a new project from this template
-~/cursor-templates/create-ads-enhanced-project.sh my-new-app
+Open [http://localhost:3000](http://localhost:3000) to view your prototype.
 
-# Or specify a custom destination
-~/cursor-templates/create-ads-enhanced-project.sh my-app ~/Desktop
+### Creating New Projects from This Template
+
+Use the included script to quickly create new Confluence prototypes:
+
+```bash
+# From this template directory
+node create-confluence-template.js my-new-prototype
+
+# Or with a different name
+node create-confluence-template.js client-dashboard
+node create-confluence-template.js team-wiki
 ```
 
-## 📁 Project Structure
+The script will:
+- 📁 Create a new directory with your project name
+- 📋 Copy all template files (excluding node_modules, .git, etc.)
+- 📝 Update package.json with the new project name
+- 📄 Generate a customized README
+- 📦 Install all dependencies
+- ✅ Ready to run immediately
+
+## Template Structure
 
 ```
 src/
-├── App.tsx                 # Main application with theme toggle and forms
-├── main.tsx               # Entry point with ADS setup
-├── utils/
-│   └── feature-flag.tsx   # ADS feature flag configuration
-├── assets/
-│   └── react.svg         # React logo
-├── App.css               # Component styles
-└── index.css             # Global styles
+├── components/
+│   ├── TopNavStartLayoutExample.tsx    # Main navigation bar
+│   ├── ConfluenceSecondaryNav.tsx      # Secondary navigation
+│   ├── SideNavigation.tsx              # Collapsible sidebar
+│   └── FloatingToolbar.tsx             # Floating action toolbar
+├── App.tsx                             # Main application layout
+└── main.tsx                            # Application entry point
 ```
 
-## 🎯 Key Components Demonstrated
+## Customization Guide
 
-### Theme Toggle
-- Located at the top of the page
-- Instantly switches between light/dark modes
-- Uses ADS design tokens for consistent theming
+### Navigation
+- **Top Navigation**: Edit `TopNavStartLayoutExample.tsx` for main nav items
+- **Secondary Navigation**: Modify `ConfluenceSecondaryNav.tsx` for breadcrumbs/sub-nav
+- **Sidebar**: Update `SideNavigation.tsx` for side menu items
+- **Floating Toolbar**: Customize `FloatingToolbar.tsx` for contextual actions
 
-### Sample Form
-- **Project Name**: Required text field with validation
-- **Project Type**: Dropdown with multiple options
-- **Public Project**: Optional checkbox
-- **Form Submission**: Console logging and success feedback
+### Content
+- **Hero Image**: Replace the Unsplash image URL in `App.tsx`
+- **Main Content**: Update the content section in `App.tsx`
+- **Theme**: Dark/light mode toggle is built-in and works automatically
 
-### Layout Components
-- **Box**: Container with padding and styling
-- **Stack**: Vertical layout with consistent spacing
-- **Inline**: Horizontal layout for elements
-- **Heading**: Typography with ADS styling
-
-## 🔧 Customization
-
-### Adding More ADS Components
+### Icons & Components
+All icons use the Atlassian Design System. Common imports:
 ```tsx
-import { Textfield } from '@atlaskit/textfield';
-import { Select } from '@atlaskit/select';
-import { Badge } from '@atlaskit/badge';
-
-// Use in your components
-<Textfield placeholder="Enter text..." />
+import QuestionCircleIcon from '@atlaskit/icon/core/question-circle';
+import NotificationIcon from '@atlaskit/icon/core/notification';
+import SidebarExpandIcon from '@atlaskit/icon/core/sidebar-expand';
 ```
 
-### Theme Customization
-```tsx
-// In main.tsx, modify theme settings
-setGlobalTheme({
-  colorMode: 'light', // or 'dark'
-  typography: 'typography-refreshed'
-});
+## Build & Deploy
+
+```bash
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-### Adding New Forms
-```tsx
-import Form, { Field, FormFooter } from '@atlaskit/form';
+## Why This Template?
 
-// Create new form sections
-<Form onSubmit={handleSubmit}>
-  {({ formProps }) => (
-    <form {...formProps}>
-      {/* Your form fields */}
-    </form>
-  )}
-</Form>
+Perfect for:
+- 🎯 **Rapid Prototyping** - Get ideas to screen quickly
+- 👥 **Client Presentations** - Professional-looking demos
+- 🧪 **Feature Testing** - Test UX concepts before development
+- 📚 **Design Systems** - Consistent Atlassian experience
+- 🚀 **Project Kickoffs** - Standard starting point for teams
+
+## Scripts Available
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Example Usage
+
+```bash
+# Create a new client prototype
+node create-confluence-template.js client-portal
+cd client-portal
+npm run dev
+
+# Create a team dashboard
+node create-confluence-template.js team-dashboard
+cd team-dashboard
+npm run dev
 ```
 
-## 📦 Dependencies
+Each new project will be completely independent with its own dependencies and can be customized without affecting the original template.
 
-### Core ADS Packages
-- `@atlaskit/tokens` - Design tokens
-- `@atlaskit/primitives` - Layout components
-- `@atlaskit/button` - Button component
-- `@atlaskit/heading` - Typography
-- `@atlaskit/css-reset` - Base styles
-- `@atlaskit/app-provider` - Context provider
-
-### Form Components
-- `@atlaskit/form` - Form management
-- `@atlaskit/textfield` - Text inputs
-- `@atlaskit/select` - Dropdown selects
-- `@atlaskit/checkbox` - Checkboxes
-
-### Development
-- `@atlaskit/platform-feature-flags` - Feature flag system
-- React 18 + TypeScript + Vite
-
-## 🎨 Design Tokens Used
-
-- **Colors**: `color.text.accent.green`, `color.border`, `color.background.*`
-- **Spacing**: `space.400`, `space.300`, `space.200`, etc.
-- **Typography**: `font.size.*`, `font.weight.*`
-- **Border Radius**: `border.radius.100`, `border.radius.200`
-
-## 🧪 Try These Features
-
-1. **Theme Toggle**: Click the 🌙/☀️ button to switch themes
-2. **Form Validation**: Try submitting the form without required fields
-3. **Responsive Layout**: Resize the window to see adaptive layout
-4. **Form Interaction**: Fill out and submit the sample form
-5. **Hot Reload**: Edit `App.tsx` and watch changes instantly
-
-## 📚 Learn More
-
-- [Atlassian Design System Documentation](https://atlassian.design/)
-- [ADS Component Library](https://atlassian.design/components)
-- [Design Tokens Reference](https://atlassian.design/foundations/design-tokens)
-- [React Documentation](https://react.dev/)
-- [Vite Documentation](https://vitejs.dev/)
-
-## 🤝 Contributing
-
-This template demonstrates best practices for ADS integration. Feel free to:
-- Add more ADS components
-- Enhance the theme system
-- Expand form functionality
-- Improve accessibility features
-
----
-
-**Built with ❤️ using Atlassian Design System**
+Happy prototyping! 🚀

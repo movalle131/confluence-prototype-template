@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ConfluenceIcon } from '@atlaskit/logo';
-import { Help } from '@atlaskit/navigation-system';
 import { AppLogo, AppSwitcher, CreateButton } from '@atlaskit/navigation-system/top-nav-items';
+import { IconButton } from '@atlaskit/button/new';
 import TextField from '@atlaskit/textfield';
 import SearchIcon from '@atlaskit/icon/core/search';
 import RovoChatIcon from '@atlaskit/icon/core/rovo-chat';
+import QuestionCircleIcon from '@atlaskit/icon/core/question-circle';
+import NotificationIcon from '@atlaskit/icon/core/notification';
+import SidebarExpandIcon from '@atlaskit/icon/core/sidebar-expand';
 import Button from '@atlaskit/button/new';
 import Avatar from '@atlaskit/avatar';
 import { Box, Inline } from '@atlaskit/primitives';
@@ -13,9 +16,11 @@ import { token } from '@atlaskit/tokens';
 interface TopNavStartLayoutExampleProps {
 	onSidebarToggle?: () => void;
 	sidebarCollapsed?: boolean;
+	isDarkMode?: boolean;
+	onThemeToggle?: () => void;
 }
 
-export function TopNavStartLayoutExample({ onSidebarToggle, sidebarCollapsed }: TopNavStartLayoutExampleProps) {
+export function TopNavStartLayoutExample({ onSidebarToggle, sidebarCollapsed, isDarkMode, onThemeToggle }: TopNavStartLayoutExampleProps) {
 	const [isSmallScreen, setIsSmallScreen] = useState(false);
 
 	useEffect(() => {
@@ -62,13 +67,13 @@ export function TopNavStartLayoutExample({ onSidebarToggle, sidebarCollapsed }: 
 					gap: token('space.100'),
 					zIndex: 1
 				}}>
-					<Button
+					<IconButton
+						icon={SidebarExpandIcon}
+						label={sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
 						appearance="subtle"
-						onClick={onSidebarToggle}
 						spacing="compact"
-					>
-						{sidebarCollapsed ? '→' : '←'}
-					</Button>
+						onClick={onSidebarToggle}
+					/>
 					<AppSwitcher label="App switcher" />
 					<AppLogo
 						href="https://jira.atlassian.com"
@@ -144,13 +149,34 @@ export function TopNavStartLayoutExample({ onSidebarToggle, sidebarCollapsed }: 
 						>
 							Rovo Chat
 						</Button>
-						<Help label="Help" />
+						<IconButton
+							icon={QuestionCircleIcon}
+							label="Help"
+							appearance="subtle"
+							spacing="compact"
+						/>
+						<IconButton
+							icon={NotificationIcon}
+							label="Notifications"
+							appearance="subtle"
+							spacing="compact"
+						/>
 						<Avatar
 							size="small"
 							appearance="circle"
 							name="User Name"
 							src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face"
 						/>
+						{onThemeToggle && (
+							<Button 
+								appearance="subtle" 
+								onClick={onThemeToggle}
+								spacing="compact"
+								aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+							>
+								{isDarkMode ? '☀️' : '🌙'}
+							</Button>
+						)}
 					</Inline>
 				</Box>
 			</Box>

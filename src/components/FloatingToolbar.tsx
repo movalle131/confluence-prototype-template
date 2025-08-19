@@ -22,10 +22,14 @@ export function FloatingToolbar({}: FloatingToolbarProps) {
           position: 'fixed',
           bottom: 'calc(24px + 48px + 8px)',
           right: '24px',
+          width: '48px',
           borderRadius: '12px',
           boxShadow: token('elevation.shadow.raised'),
           padding: token('space.100'),
-          zIndex: 1000
+          zIndex: 1000,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
         }}
       >
       <Stack space="space.100">
@@ -82,24 +86,32 @@ export function FloatingToolbar({}: FloatingToolbarProps) {
           zIndex: 1000
         }}
       >
-        <IconButton
-          appearance="primary"
-          spacing="default"
-          icon={RovoIcon}
-          label="Rovo"
+        <Box
+          as="button"
           style={{
-            backgroundColor: `${token('color.background.brand.boldest')} !important`,
-            borderRadius: '12px !important',
+            all: 'unset',
+            backgroundColor: token('color.background.brand.boldest'),
+            borderRadius: '12px',
             width: '48px',
             height: '48px',
-            minWidth: '48px',
-            minHeight: '48px',
-            padding: '0',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            cursor: 'pointer',
+            border: 'none',
+            outline: 'none',
+            transition: 'background-color 0.2s ease'
           }}
-        />
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = token('color.background.brand.boldest.hovered');
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = token('color.background.brand.boldest');
+          }}
+          aria-label="Rovo"
+        >
+          <RovoIcon label="" color={token('color.icon.inverse')} spacing="spacious" />
+        </Box>
       </Box>
     </>
   );
